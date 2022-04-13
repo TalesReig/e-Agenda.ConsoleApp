@@ -10,10 +10,12 @@ namespace e_Agenda.Modulo_Tarefas
     public class Tarefa : Entidadebase
     {
         private bool _EmAberto; // true
+        //private int _Percentual;
         private readonly string _Titulo;
         private readonly Prioridade _Prioridade;
         private readonly DateTime _DataAbertura;
         private readonly DateTime _DataConclusao;
+        private List<Item> _Items;
 
         public Tarefa(string titulo, Prioridade prioridade)
         {
@@ -23,6 +25,8 @@ namespace e_Agenda.Modulo_Tarefas
             _DataAbertura = DateTime.Today;
         }
 
+
+
         public override string ToString()
         {
             return "Número: " + numero +" Titulo: "+ _Titulo +" Prioridade: "+ _Prioridade +" Data de Inicio: "+ _DataAbertura+" Estado: ";
@@ -31,6 +35,11 @@ namespace e_Agenda.Modulo_Tarefas
         public bool Equals(Tarefa other)
         {
             throw new NotImplementedException();
+        }
+
+        public override string Validar()
+        {
+            return "REGISTRO_VALIDO";
         }
     }
 }

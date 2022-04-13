@@ -50,9 +50,9 @@ namespace e_Agenda.Modulo_Tarefas
 
             Tarefa TarefaAtualizada = ObterTarefa();
 
-            bool conseguiuEditar = repositorioTarefa.Editar(id,TarefaAtualizada);
+            string conseguiuEditar = repositorioTarefa.Editar(id,TarefaAtualizada);
 
-            if (!conseguiuEditar)
+            if (conseguiuEditar != "REGISTRO_VALIDO")
                 notificador.ApresentarMensagem("Não foi possível editar.", TipoMensagem.Erro);
             else
                 notificador.ApresentarMensagem("Tarefa editada com sucesso", TipoMensagem.Sucesso);

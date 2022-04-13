@@ -14,15 +14,18 @@ namespace e_Agenda.Compartilhado
         private RepositorioBase<Tarefa> repositorioTarefas;
         private TelaTarefa telaTarefas;
 
+        private RepositorioBase<Contatos> repositorioContatos;
+        private TelaContatos telaContatos;
+
 
 
         public TelaMenuPrincipal(Notificador notificador)
         {
             repositorioTarefas = new RepositorioTarefa();
             telaTarefas = new TelaTarefa(repositorioTarefas, notificador);
-            // 
-            // repositorioContato = new ControladorContato();
-            // telaContato = new TelaContato(controladorContato);
+            
+            repositorioContatos = new RepositorioContatos();
+            telaContatos = new TelaContatos(repositorioContatos, notificador);
             // 
             // repositorioCompromisso = new ControladorCompromisso();
             // telaCompromisso = new TelaCompromisso(controladorCompromisso, telaContato, controladorContato);
@@ -39,7 +42,7 @@ namespace e_Agenda.Compartilhado
                     tela = telaTarefas;
                     return tela;
                 case "2":
-                    //tela = TelaContatos;
+                    tela = telaContatos;
                     return tela;
                 case "3":
                     //tela = TelaCompromissos;

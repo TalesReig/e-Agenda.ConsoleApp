@@ -10,9 +10,6 @@ namespace e_Agenda.Compartilhado
     {
         public int numero;
 
-        public virtual string Validar()
-        {
-            return "REGISTRO_VALIDO";
-        }
+        public abstract string Validar();
     }
 }

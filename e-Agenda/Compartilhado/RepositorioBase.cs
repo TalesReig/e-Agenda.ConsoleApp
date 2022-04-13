@@ -8,7 +8,7 @@ namespace e_Agenda.Compartilhado
 {
     public class RepositorioBase<T> where T : Entidadebase
     {
-        protected readonly List<T> registros;
+        protected readonly List<T> registros; // tarefas - contatos ...
 
         protected int contadorNumero;
 
@@ -24,27 +24,28 @@ namespace e_Agenda.Compartilhado
             {
                 entidade.numero = ++contadorNumero;
                 registros.Add(entidade);
+                return "REGISTRO_VALIDO";
             }
-            return "REGISTRO_VALIDO";
+            return "";
         }
 
-        public bool Editar(int numeroSelecionado, T novaEntidade)
+        public virtual string Editar(int numeroSelecionado, T novaEntidade)
         {
-            foreach (T entidade in registros)
+            T registro = SelecionarRegistro(numeroSelecionado);
+
+            string mensagem = novaEntidade.Validar();
+            if (mensagem == "REGISTRO_VALIDO")
             {
-                if (numeroSelecionado == entidade.numero)
-                {
-                    novaEntidade.numero = entidade.numero;
+                registros.Remove(registro);
 
-                    int posicaoParaEditar = registros.IndexOf(entidade);
-                    registros[posicaoParaEditar] = novaEntidade;
+                novaEntidade.numero = numeroSelecionado;
 
-                    return true;
-                }
+                registros.Add(novaEntidade);
+
+                return mensagem;
             }
-
-            return false;
-        }
+            return mensagem;
+        }    
 
         public bool Excluir(int numeroSelecionado)
         {

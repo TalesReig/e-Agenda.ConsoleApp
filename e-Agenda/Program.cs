@@ -1,5 +1,6 @@
 ﻿using System;
 using e_Agenda.Compartilhado;
+using e_Agenda.Modulo_Contatos;
 using e_Agenda.Modulo_Tarefas;
 
 namespace e_Agenda
@@ -55,7 +56,7 @@ namespace e_Agenda
                     notificador.ApresentarMensagem("Nenhum registro disponível!", TipoMensagem.Atencao);
             }
 
-            if (telaSelecionada is TelaTarefa)
+            if (telaSelecionada is TelaContatos)
             {
              //   TelaTarefa TelaTarefas = (TelaTarefa)telaSelecionada;
              //
