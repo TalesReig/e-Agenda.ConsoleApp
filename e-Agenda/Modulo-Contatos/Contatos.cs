@@ -14,7 +14,7 @@ namespace e_Agenda.Modulo_Contatos
         private string _Email;
         private string _Telefone;
         private string _Empresa;
-        private string _Cargo;
+        public string _Cargo;
 
         public Contatos(string nome, string email, string telefone, string empresa, string cargo)
         {

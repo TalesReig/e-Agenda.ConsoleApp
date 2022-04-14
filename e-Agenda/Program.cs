@@ -56,20 +56,24 @@ namespace e_Agenda
                     notificador.ApresentarMensagem("Nenhum registro disponível!", TipoMensagem.Atencao);
             }
 
+            if (telaSelecionada is TelaTarefa)
+            {
+               TelaTarefa TelaTarefas = (TelaTarefa)telaSelecionada;
+            
+                if (opcaoSelecionada == "5")
+                  TelaTarefas.VisualizarRegistrosPendetes("Tela");
+                
+                else if (opcaoSelecionada == "6")
+                    TelaTarefas.VisualizarRegistrosConcluidos("Tela");
+
+                else if (opcaoSelecionada == "7")
+                    TelaTarefas.AtualizarRegistro();
+            }
             if (telaSelecionada is TelaContatos)
             {
-             //   TelaTarefa TelaTarefas = (TelaTarefa)telaSelecionada;
-             //
-             //   if (opcaoSelecionada == "5")
-             //   {
-             //       bool temRegistros = TelaTarefas.VisualizarAmigosComMulta("Tela");
-             //
-             //       if (!temRegistros)
-             //           notificador.ApresentarMensagem("Não há nenhum amigo com multa aberta.", TipoMensagem.Atencao);
-             //   }
-             //
-             //   else if (opcaoSelecionada == "6")
-             //       TelaTarefas.PagarMulta();
+                TelaContatos telacontato = (TelaContatos)telaSelecionada;
+                if (opcaoSelecionada == "5")
+                    telacontato.VisualizarRegistros("Tela");
             }
         }
     }

@@ -11,7 +11,7 @@ namespace e_Agenda.Compartilhado
 {
     internal class TelaMenuPrincipal
     {
-        private RepositorioBase<Tarefa> repositorioTarefas;
+        private RepositorioTarefa repositorioTarefas;
         private TelaTarefa telaTarefas;
 
         private RepositorioBase<Contatos> repositorioContatos;

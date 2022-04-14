@@ -109,6 +109,25 @@ namespace e_Agenda.Modulo_Contatos
             {
                 Console.WriteLine(contato.ToString());
             }
+            Console.ReadKey();
+            return true;
+        }
+
+        public bool VisualizarRegistrosOrdenados(string tipoVisualizado)
+        {
+            if (tipoVisualizado == "Tela")
+                MostrarTitulo("Visualização de Contato");
+
+            List<Contatos> contatos = repositorioContato.OrdenadosPorCargo();
+
+            if (contatos.Count == 0)
+                return false;
+
+            foreach (Contatos contato in contatos)
+            {
+                Console.WriteLine(contato.ToString());
+            }
+            Console.ReadKey();
             return true;
         }
 

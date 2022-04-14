@@ -10,36 +10,62 @@ namespace e_Agenda.Modulo_Tarefas
     public class Tarefa : Entidadebase
     {
         private bool _EmAberto; // true
-        //private int _Percentual;
+        private double _Percentual;
         private readonly string _Titulo;
-        private readonly Prioridade _Prioridade;
-        private readonly DateTime _DataAbertura;
+        public readonly Prioridade _Prioridade;
+        private DateTime _DataAbertura { get; set; }
         private readonly DateTime _DataConclusao;
-        private List<Item> _Items;
+        public List<Item> _Itens;
 
-        public Tarefa(string titulo, Prioridade prioridade)
+
+        public void setarDataExistente(DateTime data)
+        {
+            _DataAbertura = data;
+        }
+
+        public DateTime DataAbertura{ get{ return _DataAbertura;} }
+
+        public bool TarefaEmAberto { get { return _EmAberto; } }
+
+        public Tarefa(string titulo, Prioridade prioridade, List<Item> itens)
         {
             _EmAberto = true;
             _Titulo = titulo;
+            _Itens = itens;
             _Prioridade = prioridade;
             _DataAbertura = DateTime.Today;
         }
 
+        public double CalcularPercentual()
+        {
+            int totConcluidas = 0;
+            foreach(Item item in _Itens)
+            {
+                if (item.concluida == true)
+                    totConcluidas++;
+            }
 
+            this._Percentual = totConcluidas / _Itens.Count();
+
+            if (_Percentual == 100)
+                fechar();
+
+            return this._Percentual;
+        }
 
         public override string ToString()
         {
             return "Número: " + numero +" Titulo: "+ _Titulo +" Prioridade: "+ _Prioridade +" Data de Inicio: "+ _DataAbertura+" Estado: ";
         }
 
-        public bool Equals(Tarefa other)
-        {
-            throw new NotImplementedException();
-        }
-
         public override string Validar()
         {
             return "REGISTRO_VALIDO";
+        }
+
+        public void fechar()
+        {
+            _EmAberto = false;
         }
     }
 }
