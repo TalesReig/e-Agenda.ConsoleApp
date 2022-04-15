@@ -7,7 +7,7 @@ using e_Agenda.Compartilhado;
 
 namespace e_Agenda.Modulo_Contatos
 {
-    internal class RepositorioContatos : RepositorioBase<Contatos>
+    public class RepositorioContatos : RepositorioBase<Contatos>
     {
         public List<Contatos> OrdenadosPorCargo()
         {

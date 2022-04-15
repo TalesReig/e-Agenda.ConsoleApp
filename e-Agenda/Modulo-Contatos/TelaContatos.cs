@@ -7,7 +7,7 @@ using e_Agenda.Compartilhado;
 
 namespace e_Agenda.Modulo_Contatos
 {
-    internal class TelaContatos : TelaBase, ICadastravel
+    public class TelaContatos : TelaBase, ICadastravel
     {
         RepositorioContatos repositorioContato;
         Notificador notificador;

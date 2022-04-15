@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using e_Agenda.Compartilhado;
 
 namespace e_Agenda.Modulo_Compromissos
 {
-    internal class RepositorioCompromissos
+    public class RepositorioCompromissos : RepositorioBase<Compromissos>
     {
     }
 }

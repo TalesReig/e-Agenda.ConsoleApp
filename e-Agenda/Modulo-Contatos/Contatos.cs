@@ -10,10 +10,10 @@ namespace e_Agenda.Modulo_Contatos
 {
     public class Contatos : Entidadebase
     {
-        private string _Nome;
+        public string _Nome;
         private string _Email;
-        private string _Telefone;
-        private string _Empresa;
+        public string _Telefone;
+        public string _Empresa;
         public string _Cargo;
 
         public Contatos(string nome, string email, string telefone, string empresa, string cargo)

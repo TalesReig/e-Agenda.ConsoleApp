@@ -17,7 +17,8 @@ namespace e_Agenda.Compartilhado
         private RepositorioBase<Contatos> repositorioContatos;
         private TelaContatos telaContatos;
 
-
+        private RepositorioBase<Compromissos> repositorioCompromissos;
+        private TelaCompromissos telaCompromissos;
 
         public TelaMenuPrincipal(Notificador notificador)
         {
@@ -26,9 +27,9 @@ namespace e_Agenda.Compartilhado
             
             repositorioContatos = new RepositorioContatos();
             telaContatos = new TelaContatos(repositorioContatos, notificador);
-            // 
-            // repositorioCompromisso = new ControladorCompromisso();
-            // telaCompromisso = new TelaCompromisso(controladorCompromisso, telaContato, controladorContato);
+             
+            repositorioCompromissos = new RepositorioCompromissos();
+            telaCompromissos = new TelaCompromissos( (RepositorioCompromissos)repositorioCompromissos, (RepositorioContatos)repositorioContatos, telaContatos, notificador);
         }
         public TelaBase ObterTela()
         {
@@ -45,7 +46,7 @@ namespace e_Agenda.Compartilhado
                     tela = telaContatos;
                     return tela;
                 case "3":
-                    //tela = TelaCompromissos;
+                    tela = telaCompromissos;
                     return tela;
                 case "s":
                     tela = null;
