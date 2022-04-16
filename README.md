@@ -1,7 +1,5 @@
 # e-Agenda.ConsoleApp
 
-# e-Agenda
-
 José Pedro é uma pessoa que tem muito o que fazer e desta forma precisa controlar todas as suas tarefas diárias, semanais e mensais. Ele
 tentou utilizar as agendas de papel, entretanto esta ferramenta não consegue ser tão dinâmica quanto as boas listas no estilo “To Do”.
 José Pedro já tentou anotar milhares de post-its, enviou e-mail para si mesmo lotando a sua caixa de entrada e diante destas tentativas que
